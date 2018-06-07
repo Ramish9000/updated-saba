@@ -3,18 +3,18 @@ const router   = express.Router();
 
 // Controllers
 const welcome = require('../controllers/welcome');
-const signup = require('../controllers/signup');
+const registrations = require('../controllers/registrations');
 const sessions = require('../controllers/sessions');
-const questions = require('../controllers/questions');
+const horoscope = require('../controllers/horoscope');
 const zodiacSigns = require('../controllers/zodiacSigns');
 
 // Routes
 router.route('/')
 	.get(welcome.index);
 
-router.route('/signup')
-  	.get(signup.new)
-  	.post(signup.create);
+router.route('/registrations')
+  	.get(registrations.new)
+  	.post(registrations.create);
 
 router.route('/login')
   	.get(sessions.new)
@@ -23,11 +23,10 @@ router.route('/login')
 router.route('/logout')
   	.get(sessions.delete);
 
-router.route('/questions')
-  	.get(questions.index)
-  	.put(questions.update);
+router.route('/zodiacSigns')
+  	.get(zodiacSigns.index)
 
-router.route('/horoscope')
-	.get(horoscope.show);
+router.route('/horoscope/:id')
+	.get(horoscope.show)
 
 module.exports = router;

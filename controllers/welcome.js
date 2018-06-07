@@ -4,7 +4,7 @@ function indexRoute(req, res) {
   User
     .find()
     .exec()
-    .then((user) => res.render('welcome', { user }));
+    .then((user) => res.render('pages/welcome', { user }));
 }
 
 module.exports = {
